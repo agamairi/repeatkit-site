@@ -154,7 +154,7 @@ nav a:hover {
    Hero — big bold headline with highlighted phrase
    ============================================================ */
 .hero {
-  padding: 100px 0 40px;
+  padding: 60px 0 24px;
   text-align: center;
 }
 
@@ -162,7 +162,7 @@ nav a:hover {
   width: 120px;
   height: 120px;
   border-radius: 28px;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
   box-shadow: 0 20px 50px -10px var(--shadow-medium);
 }
 
@@ -189,7 +189,7 @@ nav a:hover {
   font-size: 1.25rem;
   color: var(--text-secondary);
   max-width: 600px;
-  margin: 0 auto 36px;
+  margin: 0 auto 24px;
   line-height: 1.65;
 }
 
@@ -219,11 +219,45 @@ nav a:hover {
   transform: translateY(0);
 }
 
+/* Desktop hero — side-by-side layout to use available width */
+@media (min-width: 1200px) {
+  .hero {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    text-align: left;
+    padding: 48px 0 24px;
+  }
+
+  .hero-icon {
+    flex-shrink: 0;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 0;
+  }
+
+  .hero-text {
+    max-width: 640px;
+  }
+
+  .hero h1 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .hero .subtitle {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 /* ============================================================
    Video showcase — scroll-triggered autoplay with unmute hint
    ============================================================ */
 .video-showcase {
-  padding: 0 0 40px;
+  padding: 0 0 24px;
   text-align: center;
   opacity: 0;
   transform: translateY(24px);
@@ -284,7 +318,7 @@ nav a:hover {
    Screenshot showcase — phone-frame cards
    ============================================================ */
 .showcase {
-  padding: 20px 0 80px;
+  padding: 16px 0 40px;
 }
 
 .showcase-grid {
@@ -327,13 +361,13 @@ nav a:hover {
    Features — grid of cards with colored icon chips
    ============================================================ */
 .features {
-  padding: 80px 0;
+  padding: 48px 0;
 }
 
 .section-title {
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -406,7 +440,7 @@ nav a:hover {
    Beta callout — honest, clearly labeled
    ============================================================ */
 .beta-callout {
-  padding: 60px 0;
+  padding: 32px 0;
 }
 
 .beta-card {
@@ -453,7 +487,7 @@ nav a:hover {
    FAQ Section — accordion style
    ============================================================ */
 .faq {
-  padding: 80px 0;
+  padding: 48px 0;
 }
 
 .faq-list {
@@ -523,7 +557,7 @@ nav a:hover {
    Footer — clean dark
    ============================================================ */
 footer {
-  padding: 48px 0;
+  padding: 36px 0;
   border-top: 1px solid var(--border-color);
   background-color: var(--surface-color);
 }
@@ -688,7 +722,7 @@ footer {
   }
 
   .hero {
-    padding: 72px 0 32px;
+    padding: 48px 0 24px;
   }
 
   .hero-icon {
@@ -712,7 +746,7 @@ footer {
   }
 
   .features, .faq {
-    padding: 64px 0;
+    padding: 40px 0;
   }
 
   .feature-card {
