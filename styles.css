@@ -29,6 +29,7 @@
 
   /* Primary accent — pink matches the app icon */
   --accent-primary: #E91E63;
+  --accent-pink-gradient: linear-gradient(135deg, #E91E63, #F28183);
   --accent-primary-hover: #C2185B;
 
   /* Borders and shadows */
@@ -178,7 +179,7 @@ nav a:hover {
 
 .highlight {
   display: inline-block;
-  background-color: var(--accent-pink);
+  background: var(--accent-pink-gradient);
   color: #FFFFFF;
   padding: 0.02em 0.3em;
   border-radius: var(--radius-pill);
@@ -194,7 +195,7 @@ nav a:hover {
 
 .hero-cta {
   display: inline-block;
-  background-color: var(--accent-pink);
+  background: var(--accent-pink-gradient);
   color: #FFFFFF;
   padding: 16px 36px;
   border-radius: var(--radius-pill);
@@ -209,7 +210,7 @@ nav a:hover {
 
 .hero-cta:hover {
   color: #FFFFFF;
-  background-color: var(--accent-primary-hover);
+  background: var(--accent-primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 20px 40px -8px rgba(233, 30, 99, 0.45);
 }
