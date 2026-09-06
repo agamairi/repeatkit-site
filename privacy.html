@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — RepeatKit</title>
+  <meta name="description" content="RepeatKit privacy policy. 100% on-device, no account, no server, no analytics.">
+  <link rel="icon" type="image/png" href="assets/icon/icon_192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <img src="assets/icon/icon_192.png" alt="RepeatKit icon">
+        RepeatKit
+      </a>
+      <nav>
+        <a href="index.html#features">Features</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container content-page">
+
+      <h1>Privacy Policy</h1>
+      <p class="last-updated">Last updated: September 6, 2026</p>
+
+      <p>
+        RepeatKit is a local, privacy-preserving Android automation app. This policy describes exactly what the app does and does not do with your data. It is written in plain language because you deserve to understand it.
+      </p>
+
+      <!-- ============================== -->
+      <h2>No account or sign-in</h2>
+      <p>
+        RepeatKit does not have accounts, user registration, or any form of sign-in. There is nothing to create and nothing to log into.
+      </p>
+
+      <!-- ============================== -->
+      <h2>No developer-operated server</h2>
+      <p>
+        The developer does not operate any backend server. The app does not transmit your shortcut contents, recorded steps, screen content, or usage data anywhere. There is no server to send data to.
+      </p>
+
+      <!-- ============================== -->
+      <h2>How the Accessibility Service is used</h2>
+      <p>
+        RepeatKit uses Android's Accessibility Service exclusively to observe and replay the taps, scrolls, and typing that you record yourself, for shortcuts that you create and run yourself. The service is used only during active recording and replay sessions that you initiate.
+      </p>
+      <p>
+        The Accessibility Service is <strong>not</strong> used to monitor your device in the background, collect data about your behavior, or transmit any information to the developer or any third party.
+      </p>
+
+      <!-- ============================== -->
+      <h2>Network requests</h2>
+      <p>
+        The one network request the app makes on its own initiative is downloading the optional on-device AI model (FunctionGemma, ~270 MB) directly from <strong>Hugging Face's CDN</strong> (huggingface.co), when you choose to opt into the AI describe feature. This download goes directly from Hugging Face to your device — the developer never sees this traffic and does not operate any intermediary server.
+      </p>
+      <p>
+        If you create a shortcut step of the "HTTP request" type, that step sends a request to whatever URL you configure. This is entirely under your own control and is not initiated by the developer.
+      </p>
+
+      <!-- ============================== -->
+      <h2>Local storage only</h2>
+      <p>
+        All recorded shortcuts, individual steps, and app settings are stored locally on your device only. They are not synced, backed up to a cloud service, or transmitted anywhere.
+      </p>
+
+      <!-- ============================== -->
+      <h2>No third-party analytics, advertising, or crash reporting</h2>
+      <p>
+        RepeatKit does not include any third-party analytics SDKs, advertising SDKs, or crash-reporting SDKs. There are none present in the app.
+      </p>
+
+      <!-- ============================== -->
+      <h2>Android permissions and why they are requested</h2>
+      <ul>
+        <li><strong>Accessibility Service</strong> — Required for recording and replaying taps, scrolls, and typing inside other apps. Fully disclosed in-app before use.</li>
+        <li><strong>CAMERA</strong> — Used only for flashlight toggle steps (turning the camera flash LED on or off).</li>
+        <li><strong>BLUETOOTH_CONNECT / BLUETOOTH / BLUETOOTH_ADMIN</strong> — Used for Bluetooth toggle steps on older Android versions that require these permissions.</li>
+        <li><strong>POST_NOTIFICATIONS</strong> — Used to report a shortcut's result via a notification after it finishes running.</li>
+        <li><strong>INTERNET</strong> — Used for the optional AI model download from Hugging Face and for any HTTP-request steps you configure in your shortcuts.</li>
+        <li><strong>FOREGROUND_SERVICE (and variants)</strong> — Used to keep a running shortcut alive reliably while it executes, preventing the system from killing the process mid-run.</li>
+        <li><strong>WRITE_SETTINGS / MODIFY_AUDIO_SETTINGS / ACCESS_NOTIFICATION_POLICY</strong> — Used for system-setting toggle steps such as brightness, volume, or do-not-disturb.</li>
+      </ul>
+
+      <!-- ============================== -->
+      <h2>Accessibility Service disclosure</h2>
+      <p>
+        RepeatKit's Accessibility Service is used exclusively for user-initiated recording and replay of the user's own on-device actions. Its purpose and scope are fully disclosed and consented to within the app via a dedicated in-app disclosure screen that the user must review before the service is enabled. The service can be revoked at any time by the user in Android's own Accessibility settings (Settings → Accessibility → RepeatKit).
+      </p>
+
+      <!-- ============================== -->
+      <h2>Contact</h2>
+      <p>
+        If you have questions about this privacy policy, please contact:
+      </p>
+      <p>
+        <strong><a href="mailto:officialdreamairi@gmail.com">officialdreamairi@gmail.com</a></strong>
+      </p>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="footer-text">
+        &copy; 2026 RepeatKit. Not affiliated with any other app named similarly.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

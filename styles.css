@@ -1,0 +1,705 @@
+/* ============================================================
+   RepeatKit — Marketing site design system
+   Base: app's dark theme (warm near-black bg, warm off-white ink)
+   Accents: flat solid colors from the app's tile palette
+   NO GRADIENTS — every surface is a flat solid color
+   ============================================================ */
+
+:root {
+  /* App dark theme — base ground */
+  --bg-color: #14120F;
+  --bg-elevated: #1E1B17;
+  --bg-card: #252220;
+  --surface-color: #1E1B17;
+
+  /* Ink colors */
+  --text-primary: #F5F1EB;
+  --text-secondary: #B8B3AB;
+  --text-tertiary: #8A857E;
+
+  /* App tile accent palette (subset) */
+  --accent-blue: #1A73E8;
+  --accent-pink: #E91E63;
+  --accent-green: #34A853;
+  --accent-orange: #EF6C00;
+  --accent-red: #D32F2F;
+  --accent-teal: #00897B;
+  --accent-purple: #9C27B0;
+  --accent-indigo: #3F51B5;
+
+  /* Primary accent — pink matches the app icon */
+  --accent-primary: #E91E63;
+  --accent-primary-hover: #C2185B;
+
+  /* Borders and shadows */
+  --border-color: rgba(245, 241, 235, 0.08);
+  --border-strong: rgba(245, 241, 235, 0.14);
+  --shadow-soft: rgba(0, 0, 0, 0.3);
+  --shadow-medium: rgba(0, 0, 0, 0.5);
+
+  /* Shape language — matches app's rounded rects, pills, circles */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 100px;
+  --radius-circle: 50%;
+
+  /* System font stack */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-padding-top: 80px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--accent-primary);
+}
+
+.container {
+  width: min(92%, 1200px);
+  margin: 0 auto;
+}
+
+/* ============================================================
+   Header — sticky, semi-transparent dark bar
+   ============================================================ */
+header {
+  padding: 16px 0;
+  background-color: rgba(20, 18, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.logo:hover {
+  color: var(--text-primary);
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+nav {
+  display: flex;
+  gap: 4px;
+}
+
+nav a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+nav a:hover {
+  color: var(--text-primary);
+  background-color: rgba(245, 241, 235, 0.06);
+}
+
+/* ============================================================
+   Hero — big bold headline with highlighted phrase
+   ============================================================ */
+.hero {
+  padding: 100px 0 40px;
+  text-align: center;
+}
+
+.hero-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 28px;
+  margin-bottom: 36px;
+  box-shadow: 0 20px 50px -10px var(--shadow-medium);
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  font-weight: 800;
+  line-height: 1.08;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.highlight {
+  display: inline-block;
+  background-color: var(--accent-pink);
+  color: #FFFFFF;
+  padding: 0.02em 0.3em;
+  border-radius: var(--radius-pill);
+}
+
+.hero .subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 36px;
+  line-height: 1.65;
+}
+
+.hero-cta {
+  display: inline-block;
+  background-color: var(--accent-pink);
+  color: #FFFFFF;
+  padding: 16px 36px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 16px 32px -8px rgba(233, 30, 99, 0.35);
+}
+
+.hero-cta:hover {
+  color: #FFFFFF;
+  background-color: var(--accent-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -8px rgba(233, 30, 99, 0.45);
+}
+
+.hero-cta:active {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   Screenshot showcase — phone-frame cards
+   ============================================================ */
+.showcase {
+  padding: 20px 0 80px;
+}
+
+.showcase-grid {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.phone-frame {
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  padding: 12px;
+  max-width: 260px;
+  box-shadow: 0 24px 48px -12px var(--shadow-soft);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.phone-frame:hover {
+  transform: translateY(-6px);
+}
+
+.phone-frame img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+
+.phone-frame-label {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* ============================================================
+   Features — grid of cards with colored icon chips
+   ============================================================ */
+.features {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  text-align: center;
+  margin-bottom: 48px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-card {
+  background-color: var(--bg-elevated);
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -12px var(--shadow-soft);
+  border-color: var(--border-strong);
+}
+
+/* Circular color chip — mirrors the app's icon/color selector circles */
+.feature-chip {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-circle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  font-size: 1.2rem;
+}
+
+.feature-chip.blue { background-color: var(--accent-blue); }
+.feature-chip.green { background-color: var(--accent-green); }
+.feature-chip.orange { background-color: var(--accent-orange); }
+.feature-chip.teal { background-color: var(--accent-teal); }
+.feature-chip.purple { background-color: var(--accent-purple); }
+.feature-chip.red { background-color: var(--accent-red); }
+
+.feature-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   Beta callout — honest, clearly labeled
+   ============================================================ */
+.beta-callout {
+  padding: 60px 0;
+}
+
+.beta-card {
+  background-color: var(--bg-elevated);
+  border: 1px solid rgba(156, 39, 176, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.beta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--accent-purple);
+  color: #FFFFFF;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.beta-content h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.beta-content p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   FAQ Section — accordion style
+   ============================================================ */
+.faq {
+  padding: 80px 0;
+}
+
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 24px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-family);
+  letter-spacing: -0.01em;
+  transition: color 0.2s;
+}
+
+.faq-question:hover {
+  color: var(--accent-primary);
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: var(--text-tertiary);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-answer-inner {
+  padding-bottom: 24px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.faq-answer-inner a {
+  color: var(--accent-pink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ============================================================
+   Footer — clean, warm dark
+   ============================================================ */
+footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+  background-color: rgba(245, 241, 235, 0.06);
+}
+
+.footer-text {
+  color: var(--text-tertiary);
+  font-size: 0.82rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .footer-text {
+    text-align: right;
+  }
+}
+
+/* ============================================================
+   Content pages (Privacy, etc.)
+   ============================================================ */
+.content-page {
+  padding: 60px 0 100px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content-page h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 12px;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+
+.content-page .last-updated {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+}
+
+.content-page h2 {
+  font-size: 1.35rem;
+  margin-top: 40px;
+  margin-bottom: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.content-page p {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.content-page ul {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  padding-left: 24px;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.content-page li {
+  margin-bottom: 8px;
+}
+
+.content-page strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.content-page a {
+  color: var(--accent-pink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ============================================================
+   Decorative tile shapes — mirroring the app's dashboard tiles
+   ============================================================ */
+.tile-decoration {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 0 0;
+  flex-wrap: wrap;
+}
+
+.mini-tile {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  opacity: 0.7;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.mini-tile:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 600px) {
+  header {
+    padding: 12px 0;
+  }
+
+  .header-content {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 12px;
+  }
+
+  nav {
+    gap: 0;
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    padding: 72px 0 32px;
+  }
+
+  .hero-icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 22px;
+  }
+
+  .showcase-grid {
+    gap: 16px;
+  }
+
+  .phone-frame {
+    max-width: 160px;
+    padding: 8px;
+    border-radius: var(--radius-lg);
+  }
+
+  .phone-frame img {
+    border-radius: 14px;
+  }
+
+  .features, .faq {
+    padding: 64px 0;
+  }
+
+  .feature-card {
+    padding: 24px 20px;
+  }
+
+  .beta-card {
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px 24px;
+  }
+
+  .content-page {
+    padding: 48px 20px 72px;
+  }
+}
+
+/* ============================================================
+   Focus rings & selection
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: rgba(233, 30, 99, 0.25);
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   Scroll-reveal animation
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

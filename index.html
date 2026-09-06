@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RepeatKit — Show it once. Run it locally.</title>
+  <meta name="description" content="Record real taps, scrolls, and typing on your Android device. Replay them anytime — from the app, a home-screen widget, or the editor. 100% on-device, no account needed.">
+  <link rel="icon" type="image/png" href="assets/icon/icon_192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       Header / Nav
+       ============================================================ -->
+  <header>
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <img src="assets/icon/icon_192.png" alt="RepeatKit icon">
+        RepeatKit
+      </a>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         Hero — "Show it once. Run it locally."
+         ============================================================ -->
+    <section class="hero container">
+      <img src="assets/icon/icon_512.png" alt="RepeatKit icon" class="hero-icon">
+      <h1><span class="highlight">Show it once.</span> Run it locally.</h1>
+      <p class="subtitle">
+        Record the taps, scrolls, and typing you do across your Android apps.
+        RepeatKit captures every step and replays the exact sequence later — from the app, a home-screen widget, or the editor. No cloud. No account. Just your phone.
+      </p>
+      <a href="#features" class="hero-cta">Coming to Google Play</a>
+    </section>
+
+    <!-- ============================================================
+         Screenshot showcase — real app screenshots in phone frames
+         ============================================================ -->
+    <section class="showcase container reveal">
+      <div class="showcase-grid">
+        <div class="phone-frame">
+          <img src="assets/screenshots/01_dashboard.png" alt="RepeatKit dashboard showing shortcut tiles">
+          <div class="phone-frame-label">Dashboard</div>
+        </div>
+        <div class="phone-frame">
+          <img src="assets/screenshots/04_builder_step.png" alt="RepeatKit shortcut builder with steps">
+          <div class="phone-frame-label">Builder</div>
+        </div>
+        <div class="phone-frame">
+          <img src="assets/screenshots/03_add_action.png" alt="RepeatKit add action menu">
+          <div class="phone-frame-label">Add Action</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Features grid
+         ============================================================ -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title">Automate what you actually do.</h2>
+        <div class="features-grid">
+
+          <div class="feature-card reveal">
+            <div class="feature-chip blue">⏺</div>
+            <h3>Record real interactions</h3>
+            <p>Hit Record and use your phone normally. RepeatKit captures the actual taps, scrolls, and typing you perform across any app — not just app launches or deep links.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-chip orange">✏️</div>
+            <h3>Review every step</h3>
+            <p>Before anything runs, you see every captured step in a clear list. Edit, reorder, or remove steps. You stay in control of exactly what your shortcut does.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-chip green">🏠</div>
+            <h3>One-tap widget</h3>
+            <p>Pin any shortcut to your home screen as a widget. One tap and it runs — no need to open the app first. Shortcuts run reliably in the background.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-chip teal">✓</div>
+            <h3>Safe "Check" mode</h3>
+            <p>Validate a shortcut without running it. Check mode walks through every step and verifies it can find the right elements, without actually tapping or typing anything.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-chip red">🛡</div>
+            <h3>Confirmation before action</h3>
+            <p>Steps that send a message, dial a number, or make a real HTTP request pause and ask you to confirm first. Nothing irreversible runs without your explicit OK.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-chip purple">🔒</div>
+            <h3>100% on-device</h3>
+            <p>No account, no login, no server. Your shortcuts and recorded steps never leave your phone. RepeatKit works entirely locally — even without an internet connection.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         AI Beta callout — honest, clearly labeled
+         ============================================================ -->
+    <section class="beta-callout container reveal">
+      <div class="beta-card">
+        <span class="beta-badge">✦ Beta</span>
+        <div class="beta-content">
+          <h3>AI Describe — experimental</h3>
+          <p>
+            An optional feature that can draft shortcut steps from a typed description using a small on-device language model (FunctionGemma, ~270 MB). The model is downloaded once, on demand, directly from Hugging Face's CDN — not from our servers. It runs entirely on your phone.
+          </p>
+          <p>
+            This is clearly experimental: the AI drafts steps that <strong>you must still review and approve</strong> before they run. It's a convenience for getting started, not a replacement for checking each step yourself.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Decorative tile strip — mirrors the app's dashboard tiles -->
+    <div class="tile-decoration container" aria-hidden="true">
+      <div class="mini-tile" style="background-color: #1A73E8;">⚡</div>
+      <div class="mini-tile" style="background-color: #EF6C00;">⚡</div>
+      <div class="mini-tile" style="background-color: #00897B;">⚡</div>
+      <div class="mini-tile" style="background-color: #34A853;">⚡</div>
+      <div class="mini-tile" style="background-color: #E91E63;">⚡</div>
+      <div class="mini-tile" style="background-color: #9C27B0;">⚡</div>
+    </div>
+
+    <!-- ============================================================
+         FAQ — accordion, folded into index
+         ============================================================ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="section-title">Frequently asked questions</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question">How is RepeatKit different from a shortcut or launcher app?</button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Launcher apps open apps or deep-link into them. RepeatKit goes further: it records and replays actual multi-step interactions — real taps, scrolls, and typing — across any app on your phone. You're automating the things you do inside apps, not just launching them.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Is RepeatKit affiliated with any similarly-named app?</button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                No. RepeatKit is an independent app. It is not affiliated with, endorsed by, or related to any other app or product with a similar name.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Does it require an account or login?</button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                No. There is no account, no sign-in, and no registration of any kind. You install it and start using it — that's it.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Does it work without the AI feature?</button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. Recording and replaying shortcuts is the core feature and does not require the AI model, a network connection, or any setup beyond enabling the accessibility service. The AI describe feature is entirely optional.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">What happens if an app's UI changes after I record a shortcut?</button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                If the app you automated has been redesigned or updated since you recorded, replay may not be able to find the same on-screen element. When that happens, RepeatKit stops and tells you which step couldn't be matched — it won't guess or tap the wrong thing. You can re-record the affected steps.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Is my data private?</button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. All shortcuts, recorded steps, and settings are stored locally on your device only. There is no developer-operated server, no analytics, no advertising SDKs, and no crash reporting. The only network request the app makes on its own is downloading the optional AI model from Hugging Face, if you choose to use that feature. See the full <a href="privacy.html">privacy policy</a> for details.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Why does it need the Accessibility Service?</button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Android's Accessibility Service is the only way for an app to observe and replay taps, scrolls, and typing inside other apps. RepeatKit uses it exclusively for recording and replaying the shortcuts you create yourself. It does not monitor your device in the background or collect any data for the developer. You can revoke the permission at any time in your phone's Accessibility settings.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-text">
+        &copy; 2026 RepeatKit. Not affiliated with any other app named similarly.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       Scripts — scroll reveal + FAQ accordion
+       ============================================================ -->
+  <script>
+    // Scroll reveal
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      els.forEach(function (el) { observer.observe(el); });
+    })();
+
+    // FAQ accordion
+    (function () {
+      var items = document.querySelectorAll('.faq-item');
+      items.forEach(function (item) {
+        var btn = item.querySelector('.faq-question');
+        var answer = item.querySelector('.faq-answer');
+        btn.addEventListener('click', function () {
+          var isOpen = item.classList.contains('active');
+          // Close all
+          items.forEach(function (i) {
+            i.classList.remove('active');
+            i.querySelector('.faq-answer').style.maxHeight = null;
+          });
+          // Open this one if it was closed
+          if (!isOpen) {
+            item.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
