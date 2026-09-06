@@ -34,12 +34,36 @@
          ============================================================ -->
     <section class="hero container">
       <img src="assets/icon/icon_512.png" alt="RepeatKit icon" class="hero-icon">
-      <h1><span class="highlight">Show it once,</span> repeat whenever</h1>
+      <h1>Show it once, <span class="highlight">repeat</span> whenever</h1>
       <p class="subtitle">
         Record the taps, scrolls, and typing you do across your Android apps.
         RepeatKit captures every step and replays the exact sequence later — from the app, a home-screen widget, or the editor. No cloud. No account. Just your phone.
       </p>
       <a href="#features" class="hero-cta">Coming to Google Play</a>
+    </section>
+
+    <!-- ============================================================
+         Video showcase — demo/brag video with scroll-triggered autoplay
+         ============================================================ -->
+    <section class="video-showcase container">
+      <div class="video-wrap">
+        <video
+          controls
+          playsinline
+          muted
+          preload="metadata"
+          poster="assets/video/brag-poster.jpg"
+          width="1920"
+          height="1080"
+        >
+          <source src="assets/video/brag.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="video-unmute-hint" aria-label="Unmute video">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          <span>Tap to unmute</span>
+        </button>
+      </div>
     </section>
 
     <!-- ============================================================
@@ -273,6 +297,92 @@
         });
       });
     })();
+  </script>
+
+  <!-- Video showcase — scroll-triggered autoplay + unmute hint -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('.video-showcase');
+    const video = section ? section.querySelector('video') : null;
+    const hint = section ? section.querySelector('.video-unmute-hint') : null;
+    if (!section || !video) return;
+
+    let userInteracted = false;
+    let hintDismissed = false;
+    let hintTimer = null;
+    let isInView = false;
+    let observerPlayPending = false;
+    let observerPausing = false;
+    let observerSeeking = false;
+    let observerMuting = false;
+
+    video.addEventListener('pause', () => {
+      if (observerPausing) { observerPausing = false; }
+      else if (!video.ended) { userInteracted = true; }
+    });
+    video.addEventListener('play', () => { if (!observerPlayPending) userInteracted = true; });
+    video.addEventListener('seeking', () => { if (!observerSeeking) userInteracted = true; });
+    video.addEventListener('seeked', () => { observerSeeking = false; });
+
+    function dismissHint() {
+      if (hintDismissed) return;
+      hintDismissed = true;
+      if (hint) hint.classList.add('hidden');
+      if (hintTimer) clearTimeout(hintTimer);
+    }
+    function showHint() {
+      if (hintDismissed || !hint) return;
+      if (hintTimer) clearTimeout(hintTimer);
+      hint.classList.add('visible');
+      hintTimer = setTimeout(dismissHint, 4000);
+    }
+
+    if (hint) {
+      hint.addEventListener('click', () => {
+        userInteracted = true;
+        video.muted = false;
+        dismissHint();
+      });
+      video.addEventListener('volumechange', () => {
+        if (!video.muted) dismissHint();
+        if (observerMuting) { observerMuting = false; }
+        else { userInteracted = true; }
+      });
+    }
+
+    function muteForAutoplay() { observerMuting = true; video.muted = true; }
+    function pauseForScroll() { if (video.paused) return; observerPausing = true; video.pause(); }
+
+    async function playForScroll() {
+      if (userInteracted || observerPlayPending) return;
+      observerPlayPending = true;
+      try {
+        if (video.ended) { observerSeeking = true; video.currentTime = 0; }
+        muteForAutoplay();
+        await video.play();
+        if (!isInView || userInteracted) { pauseForScroll(); return; }
+        showHint();
+      } catch (_) {
+        // Autoplay can be interrupted by a fast scroll; that is expected.
+      } finally {
+        observerPlayPending = false;
+      }
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isInView = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          section.classList.add('is-visible');
+          void playForScroll();
+        } else {
+          if (!userInteracted) pauseForScroll();
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(section);
+  });
   </script>
 
 </body>

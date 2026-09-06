@@ -1,16 +1,16 @@
 /* ============================================================
    RepeatKit — Marketing site design system
-   Base: app's dark theme (warm near-black bg, warm off-white ink)
+   Base: true neutral black bg, warm off-white ink
    Accents: flat solid colors from the app's tile palette
    NO GRADIENTS — every surface is a flat solid color
    ============================================================ */
 
 :root {
   /* App dark theme — base ground */
-  --bg-color: #14120F;
-  --bg-elevated: #1E1B17;
-  --bg-card: #252220;
-  --surface-color: #1E1B17;
+  --bg-color: #000000;
+  --bg-elevated: #121212;
+  --bg-card: #1A1A1A;
+  --surface-color: #121212;
 
   /* Ink colors */
   --text-primary: #F5F1EB;
@@ -96,7 +96,7 @@ a:hover {
    ============================================================ */
 header {
   padding: 16px 0;
-  background-color: rgba(20, 18, 15, 0.85);
+  background-color: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-color);
@@ -217,6 +217,67 @@ nav a:hover {
 
 .hero-cta:active {
   transform: translateY(0);
+}
+
+/* ============================================================
+   Video showcase — scroll-triggered autoplay with unmute hint
+   ============================================================ */
+.video-showcase {
+  padding: 0 0 40px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.video-showcase.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.video-wrap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 800px;
+}
+.video-showcase video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 30px 60px -12px rgba(0,0,0,0.5),
+    0 18px 36px -10px rgba(0,0,0,0.35),
+    0 4px 12px -4px rgba(0,0,0,0.2);
+  border: 1px solid var(--border-color);
+  background: var(--bg-elevated);
+}
+.video-unmute-hint {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--text-primary);
+  color: var(--bg-color);
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.35s ease, transform 0.35s ease, background 0.2s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+.video-unmute-hint svg { flex-shrink: 0; }
+.video-unmute-hint.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.video-unmute-hint.hidden { opacity: 0; transform: translateY(4px); pointer-events: none; }
+.video-unmute-hint:hover { background: var(--text-secondary); }
+@media (prefers-reduced-motion: reduce) {
+  .video-showcase { opacity: 1; transform: none; transition: none; }
+  .video-unmute-hint { transition: none; transform: none; }
 }
 
 /* ============================================================
@@ -459,7 +520,7 @@ nav a:hover {
 }
 
 /* ============================================================
-   Footer — clean, warm dark
+   Footer — clean dark
    ============================================================ */
 footer {
   padding: 48px 0;
